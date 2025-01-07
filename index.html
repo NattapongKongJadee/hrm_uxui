@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Temple Region</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+      }
+
+      #temple {
+        padding: 50px;
+        text-align: center;
+      }
+
+      #temple h1 {
+        font-size: 2rem;
+        color: #333;
+      }
+
+      #temple p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .templeall {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .wat {
+        flex: 0 0 300px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .wat:hover {
+        transform: scale(1.05);
+      }
+
+      .wat img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .wat h3 {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+      }
+
+      .carousel-controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .carousel-controls button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .carousel-controls button:hover {
+        background-color: #555;
+      }
+
+      #parentCenter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      #parentCenter h1,
+      #parentCenter p {
+        margin: 0;
+      }
+
+      #parentCenter p {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parentCenter">
+      <h1 id="article">TEMPLE BY REGION</h1>
+      <p>ค้นหาวัดตามภูมิภาค</p>
+
+      <div id="temple" class="templeall">
+        <div id="watthai" class="wat">
+          <img
+            id="imagewatthai"
+            class="imagewatthai2"
+            src="north.jpeg"
+            alt="ภาคเหนือ"
+          />
+          <h3>ภาคเหนือ</h3>
+        </div>
+        <div id="watthai" class="wat">
+          <img
+            id="imagewatthai"
+            class="imagewatthai2"
+            src="middle.jpeg"
+            alt="ภาคกลาง"
+          />
+          <h3>ภาคกลาง</h3>
+        </div>
+        <div id="watthai" class="wat">
+          <img
+            id="imagewatthai"
+            class="imagewatthai2"
+            src="ne.jpeg"
+            alt="ภาคตะวันออกเฉียงเหนือ"
+          />
+          <h3>ภาคตะวันออกเฉียงเหนือ</h3>
+        </div>
+        <div id="watthai" class="wat">
+          <img
+            id="imagewatthai"
+            class="imagewatthai2"
+            src="tok.jpeg"
+            alt="ภาคตะวันตก"
+          />
+          <h3>ภาคตะวันตก</h3>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button onclick="setAutoPlay(true)">Auto Play</button>
+        <button onclick="setAutoPlay(false)">Stop Auto Play</button>
+      </div>
+    </div>
+
+    <script>
+      let autoPlayInterval;
+
+      function setAutoPlay(enable) {
+        if (enable) {
+          autoPlayInterval = setInterval(() => {
+            const container = document.querySelector(".templeall");
+            container.scrollBy({ left: 300, behavior: "smooth" });
+          }, 3000);
+        } else {
+          clearInterval(autoPlayInterval);
+        }
+      }
+    </script>
+  </body>
+</html>
